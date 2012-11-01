@@ -1,0 +1,3 @@
+[2012-10-17 08:18:50] START
+[2012-10-17 08:18:50] DELETE DroneManager/models/plugin_matplotlib.py: -84
+[2012-10-17 08:18:54] DELETE DroneManager/controllers/plugin_matplotlib.py: -37
