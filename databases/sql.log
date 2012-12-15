@@ -77,3 +77,19 @@ CREATE TABLE mission(
     status_id INTEGER REFERENCES mission_status (id) ON DELETE CASCADE
 );
 success!
+timestamp: 2012-12-15T21:09:47.808491
+CREATE TABLE drone_status_type(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    status_id INTEGER NOT NULL UNIQUE,
+    name CHAR(512) NOT NULL UNIQUE
+);
+success!
+timestamp: 2012-12-15T21:09:47.814790
+CREATE TABLE drone(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    drone_id INTEGER NOT NULL UNIQUE,
+    name CHAR(512) NOT NULL,
+    type_id INTEGER REFERENCES mission_type (id) ON DELETE CASCADE,
+    status_id INTEGER REFERENCES drone_status_type (id) ON DELETE CASCADE
+);
+success!

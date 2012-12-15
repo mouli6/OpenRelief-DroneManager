@@ -25,59 +25,42 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </a>
-              <a class="brand" href="#">Drone Manager</a>
-              <div class="nav-collapse collapse">
-                  <ul class="nav">
-                      <li class="active"><a href="#">Home</a></li>
-                      <li><a href="documentation">Documentation</a></li>
-                      <li class="divider"></li>
-                      <li><a href="issues">Issues</a></li>
-                  </ul>
+              <a class="brand" href="/DroneManager">Drone Manager</a>
+
+              <div align=right>
+	              {{try:}}{{=auth.navbar(action=URL('default','user'))}}{{except:pass}}
               </div>
-
-              {{try:}}{{=auth.navbar(action=URL('default','user'))}}{{except:pass}}
-
-              <div class="web2py-menu" style="float: right">
-                  {{=MENU(response.menu,_class='web2py-menu')}}
-                  <script>
-                      jQuery(document).ready(function(){jQuery('ul.web2py-menu').superfish({delay:400});});
-                  </script>
-              </div>
-
+              
           </div>
       </div>
   </div>
 
-  <div class="container">
-
-      <div class="hero-unit">
-          <img src="/DroneManager/static/images/open_relief_logo.jpg" alt="Open Relief" style="float: left"/>
-          <h1>Drone Manager</h1>
-          <p>Bridging Sahana Eden and Mission Planner, Getting You Flying</p>
+          </div><!--/.nav-collapse -->
+        </div>
       </div>
+    </div>
 
-      <div class="row">
-          <div class="span3">
-              <h2>Sahana Eden Integration</h2>
-              <p>Transfer data back and forth from/to Sahana Eden.</p>
-              <p class='text-warning'>Still in development</p>
-          </div>
-
-          <div class="span3">
-              <h2>Connect to Mission Planner</h2>
-              <p>Load and review flights/GPS</p>
-              <p class='text-warning'>Still in development</p>
-          </div>
-      </div>
-
-      <hr>
-
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Menu</li>
+              {{=MENU(response.menu)}}
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
       <div id="main">
           <div class="flash">{{=response.flash or ''}}</div>
           {{include}}
       </div>
+        </div><!--/span-->
+      </div><!--/row-->
 
-      <footer>
+      <hr>
+
+     <footer>
           <div class="container">
               Open Source
     <span class="separator">
@@ -90,8 +73,9 @@
           </div>
       </footer>
 
+    </div><!--/.fluid-container-->
 
-  </div> <!-- /container -->
+
 
   <script src="http://code.jquery.com/jquery-latest.js"></script>
 

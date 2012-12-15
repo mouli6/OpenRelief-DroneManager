@@ -15,3 +15,12 @@ db.define_table('mission',
     Field('startdate', 'datetime'),
     Field('status_id', db.mission_status))
 
+db.define_table('drone_status_type',
+    Field('status_id', 'integer', notnull=True, unique=True),
+    Field('name', notnull=True, unique=True))
+
+db.define_table('drone',
+    Field('drone_id', 'integer', notnull=True, unique=True),
+    Field('name', notnull=True),
+    Field('type_id', db.mission_type),
+    Field('status_id', db.drone_status_type))
