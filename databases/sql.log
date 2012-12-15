@@ -1,4 +1,4 @@
-timestamp: 2012-10-17T08:18:11.819675
+timestamp: 2012-12-15T17:14:58.608637
 CREATE TABLE auth_user(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name CHAR(128),
@@ -10,21 +10,21 @@ CREATE TABLE auth_user(
     registration_id CHAR(512)
 );
 success!
-timestamp: 2012-10-17T08:18:11.827202
+timestamp: 2012-12-15T17:14:58.626160
 CREATE TABLE auth_group(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     role CHAR(512),
     description TEXT
 );
 success!
-timestamp: 2012-10-17T08:18:11.829648
+timestamp: 2012-12-15T17:14:58.629499
 CREATE TABLE auth_membership(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
     group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE
 );
 success!
-timestamp: 2012-10-17T08:18:11.832371
+timestamp: 2012-12-15T17:14:58.632952
 CREATE TABLE auth_permission(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE,
@@ -33,7 +33,7 @@ CREATE TABLE auth_permission(
     record_id INTEGER
 );
 success!
-timestamp: 2012-10-17T08:18:11.835243
+timestamp: 2012-12-15T17:14:58.639081
 CREATE TABLE auth_event(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     time_stamp TIMESTAMP,
@@ -43,7 +43,7 @@ CREATE TABLE auth_event(
     description TEXT
 );
 success!
-timestamp: 2012-10-17T08:18:11.838489
+timestamp: 2012-12-15T17:14:58.641872
 CREATE TABLE auth_cas(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
@@ -51,5 +51,29 @@ CREATE TABLE auth_cas(
     service CHAR(512),
     ticket CHAR(512),
     renew CHAR(1)
+);
+success!
+timestamp: 2012-12-15T17:42:33.671119
+CREATE TABLE mission_status(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    status_id INTEGER NOT NULL UNIQUE,
+    name CHAR(512) NOT NULL UNIQUE
+);
+success!
+timestamp: 2012-12-15T17:42:33.674542
+CREATE TABLE mission_type(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type_id INTEGER NOT NULL UNIQUE,
+    name CHAR(512) NOT NULL UNIQUE
+);
+success!
+timestamp: 2012-12-15T17:42:33.676828
+CREATE TABLE mission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    mission_id INTEGER NOT NULL UNIQUE,
+    name CHAR(512) NOT NULL,
+    type_id INTEGER REFERENCES mission_type (id) ON DELETE CASCADE,
+    startdate TIMESTAMP,
+    status_id INTEGER REFERENCES mission_status (id) ON DELETE CASCADE
 );
 success!
