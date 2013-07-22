@@ -1,0 +1,13 @@
+{{extend "layout.html"}}
+<div id='home'>
+<h2>{{=T("Sahana Eden Connection Management")}}</h2>
+<p>{{=T("Lists active Sahana Eden instances")}}</p>
+<ul>
+  <li><a href='{{=URL(c="eden", f="create", args="create")}}'>{{=T("Create New Eden Connection")}}</a>
+  <li><a href='{{=URL(c="eden", f="list")}}'>{{=T("List All Eden Connections")}}</a>
+  <li><a href='{{=URL(c="eden", f="search", args="search")}}'>{{=T("Search Eden Connections")}}</a>
+</ul>
+</div>
+
+<h1>Connections</h1>
+{{=rows}}

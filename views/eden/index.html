@@ -1,0 +1,12 @@
+{{extend "layout.html"}}
+
+<h2>{{=T("Sahana Eden Connection Management")}}</h2>
+
+<p>
+To connect your ground station with Sahana Eden, you'll need to define the connection
+and activate it.  Once activated, Drone Manager will fetch mission requests created
+by Eden disaster relief personnel and upload mission events to Eden as they become available
+from the drones connected to this ground station.  To get started,
+<a href='{{=URL(c="eden", f="edit", args="new")}}'>{{=T("Create New Connection")}}</a>
+now.
+</p>

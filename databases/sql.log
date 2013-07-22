@@ -93,3 +93,12 @@ CREATE TABLE drone(
     status_id INTEGER REFERENCES drone_status_type (id) ON DELETE CASCADE
 );
 success!
+timestamp: 2013-07-22T09:55:36.993007
+CREATE TABLE eden(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    hostname CHAR(512) NOT NULL UNIQUE,
+    active CHAR(1) NOT NULL,
+    syncdate TIMESTAMP,
+    syncstatus CHAR(1)
+);
+success!

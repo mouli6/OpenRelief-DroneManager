@@ -6,7 +6,7 @@ response.meta.description = settings.description
 response.menu = [
 (T('Home'),URL('default','index')==URL(),URL('default','index'),[]),
 (T('Mission Planner'),URL('mission','list')==URL(),URL('mission','list'),[]),
-(T('Sahana Eden'),URL('sahana','index')==URL(),URL('sahana','index'),[]),
+(T('Sahana Eden'),URL('eden','list')==URL(),URL('eden','list'),[]),
 (T('Drones'),URL('drones','list')==URL(),URL('drones','list'),[]),
 (T('Settings'),URL('settings','index')==URL(),URL('settings','index'),[]),
 (T('Administration'),URL('appadmin','index')==URL(),URL('appadmin','index'),[]),

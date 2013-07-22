@@ -24,3 +24,9 @@ db.define_table('drone',
     Field('name', notnull=True),
     Field('type_id', db.mission_type),
     Field('status_id', db.drone_status_type))
+
+db.define_table('eden',
+    Field('hostname', notnull=True, unique=True),
+    Field('active', 'boolean', notnull=True),
+    Field('syncdate', 'datetime'),
+    Field('syncstatus', 'boolean'))

@@ -1,10 +1,8 @@
 __author__ = 'walters'
 
-def index():
-    return dict()
-
+@auth.requires_login()
 def edit():
-    form = SQLFORM(db.mission)
+    form = SQLFORM(db.eden)
     if form.process().accepted:
         response.flash = T('form accepted')
     elif form.errors:
@@ -13,5 +11,10 @@ def edit():
         response.flash = T('please fill out the form')
     return dict(form=form)
 
+@auth.requires_login()
 def list():
-    return dict(rows=db().select(db.mission.ALL))
+    rows = SQLFORM.grid(db.eden)
+    return locals()
+
+def index():
+    return dict()

@@ -1,5 +1,13 @@
-{{extend 'layout.html'}}
+{{extend "layout.html"}}
+<div id='home'>
+<h2>{{=T("Mission Management")}}</h2>
+<p>{{=T("Lists active mission requests from relief personnel")}}</p>
+<ul>
+  <li><a href='{{=URL(c="mission", f="create", args="create")}}'>{{=T("Create New Mission")}}</a>
+  <li><a href='{{=URL(c="mission", f="list")}}'>{{=T("List All Missions")}}</a>
+  <li><a href='{{=URL(c="mission", f="search", args="search")}}'>{{=T("Search Missions")}}</a>
+</ul>
+</div>
 
 <h1>Missions</h1>
 {{=rows}}
-        
